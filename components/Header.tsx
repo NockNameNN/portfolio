@@ -1,7 +1,8 @@
 'use client'
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
-// import GitHubCorners from '@uiw/react-github-corners';
+import GitHubCorners from '@uiw/react-github-corners';
+
 const navItems = [
     ['sagdiev-ruslan', '/'],
     ['_hello', '/'],
@@ -9,11 +10,16 @@ const navItems = [
     ['_projects', '/projects'],
     ['_contact-me', '/contact-me']
 ];
+
 export default function Header() {
     const pathname = usePathname();
     return (
-        <header className="w-full h-[50px] text-label border-b flex flex-row">
-            {/* <GitHubCorners href="https://github.com/NockNameNN" color='#43D9AD' bgColor='#011627'/> */}
+        <header className="w-full h-[50px] text-label border-b flex">
+            <GitHubCorners
+                href="https://github.com/NockNameNN/portfolio"
+                color='#43D9AD'
+                bgColor='#011627'
+            />
             <nav className="flex justify-between w-full">
                 <div className="flex">
                     {navItems.slice(0, -1).map((item, index) => {
@@ -34,9 +40,9 @@ export default function Header() {
                 <Link
                     className={`flex items-center px-6 border-l hover:bg-line hover:text-white 
                         ${pathname === navItems[4][1] ? 'text-white border-b-[3px] border-b-orange border-3' : ''}`}
-                    href={navItems[4][1]}
+                    href={navItems[navItems.length-1][1]}
                 >
-                    {navItems[4][0]}
+                    {navItems[navItems.length-1][0]}
                 </Link>
             </nav>
         </header>
