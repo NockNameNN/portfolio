@@ -25,7 +25,10 @@ const config: Config = {
           DEFAULT: '#3C9D93',
           light: '#43D9AD',
         },
-        'white': '#FFFFFF',
+        'white': {
+          DEFAULT: '#FFFFFF', 
+          'header': '#E5E9F0'
+        },
         'orage': '#FEA55F',
         'red': '#E99287',
         'purpure': '#C98BDF',
