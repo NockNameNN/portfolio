@@ -1,13 +1,11 @@
 'use client'
 import Link from "next/link";
-import VkIcon from '@/public/icons/vk.svg'; 
-import Telegram from '@/public/icons/telegram.svg';
-import GitHub from '@/public/icons/github.svg';
+import {Vk, Telegram, GitHub} from '@/public/icons';
 
 type Item = [string | JSX.Element, string];
 
 const contacts: Item[] = [
-    [<VkIcon key={1} />, 'https://vk.com/suslikdl'],
+    [<Vk key={1} />, 'https://vk.com/suslikdl'],
     [<Telegram key={2} />, 'https://t.me/nockname'],
     [<GitHub
         className='opacity-40 group-hover:opacity-100'

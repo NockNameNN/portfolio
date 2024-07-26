@@ -1,7 +1,6 @@
 'use client'
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
-import GitHubCorners from '@uiw/react-github-corners';
 
 const navItems = [
     ['sagdiev-ruslan', '/'],
@@ -15,11 +14,6 @@ export default function Header() {
     const pathname = usePathname();
     return (
         <header className="w-full h-[50px] text-label border-b flex">
-            <GitHubCorners
-                href="https://github.com/NockNameNN/portfolio"
-                color='#43D9AD'
-                bgColor='#011627'
-            />
             <nav className="flex justify-between w-full">
                 <div className="flex">
                     {navItems.slice(0, -1).map((item, index) => {

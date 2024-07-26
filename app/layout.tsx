@@ -1,10 +1,28 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Fira_Code } from "next/font/google";
+import localFont from 'next/font/local';
 import "./globals.css";
 
-const firaCode = Fira_Code({ subsets: ["latin"] });
+const firaCode = localFont({
+    src: [
+        {
+            path: './../public/fonts/FiraCode-Regular.ttf',
+            weight: '400',
+            style: 'normal',
+        },
+        {
+            path: './../public/fonts/FiraCode-Retina.ttf',
+            weight: '450',
+            style: 'normal',
+        },
+        {
+            path: './../public/fonts/FiraCode-Medium.ttf',
+            weight: '500',
+            style: 'normal',
+        },
+    ], 
+})
 
 export const metadata: Metadata = {
     title: "Sagdiev Ruslan | Frontend Developer Portfolio",
@@ -18,12 +36,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ru">
-            <body className={`${firaCode.className} text-gray text-body m-[30px] bg-background`}>
-                <div className="bg-black-light  border rounded-lg">
+            <body className={`${firaCode.className} font-retina text-gray text-body p-[30px] bg-background h-screen`}>
+                <div className="flex flex-col justify-between bg-black-light border rounded-lg h-full">
                     <Header />
-                    <main>
-                        {children}
-                    </main>
+                    {children}
                     <Footer />
                 </div>
             </body>
