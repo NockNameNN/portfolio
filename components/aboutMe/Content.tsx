@@ -46,22 +46,22 @@ export default function Content({ subhead, content }: IProps) {
                 </div>
                 <div className='subhead w-full'></div>
             </div>  
-            <div className='flex mt-5 font-fira_retina text-menu-text'>
-                <div className='lg:flex flex-col w-32 hidden'>
+            <div className='flex mt-5'>
+                <div className='ml-10 lg:flex flex-col w-16 min-w-[4rem] hidden'>
                     {Array.from({ length: lineCount }, (_, index) => (
                         <div
                             key={index}
-                            className="grid grid-cols-2 justify-end"
+                            className="grid grid-cols-2 gap-10 items-center"
                         >
-                            <span className="col-span-1 mr-3">{index + 1}</span>
-                            <div className="col-span-1 flex justify-center">{getLineContent(index)}</div>
+                            <span className="col-span-1 text-right">{index + 1}</span>
+                            <div className="col-span-1">{getLineContent(index)}</div>
                         </div>
                     ))}
                 </div>
-                <div className='text-container'>
+                <div className='flex-1 text-container pl-4'>
                     <pre
                         ref={contentRef}
-                        className='text-wrap'
+                        className='whitespace-pre-wrap'
                     >
                         {`\n${content}`}
                     </pre>
