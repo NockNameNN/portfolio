@@ -5,11 +5,16 @@ import BoltUpRight from './bolt-up-right.svg';
 import GitHub from './github.svg';
 import Telegram from './telegram.svg';
 import Vk from './vk.svg';
-import ArrowUp from './arrow-up.svg';
-import ArrowDown from './arrow-down.svg';
-import ArrowRight from './arrow-right.svg';
-import ArrowLeft from './arrow-left.svg';
+import Arrow from './arrow.svg';
 import Food from './food.svg';
+import Console from './console.svg';
+import MagicBall from './magic-ball.svg';
+import Gamepad from './gamepad.svg';
+import Folder from './folder.svg';
+import FolderArrow from './folder-arrow.svg';
+import Mail from './mail.svg';
+import Phone from './phone.svg';
+import Close from './close.svg';
 
 export {
     BoltDownLeft,
@@ -19,9 +24,14 @@ export {
     GitHub,
     Telegram,
     Vk,
-    ArrowUp,
-    ArrowDown,
-    ArrowRight,
-    ArrowLeft,
+    Arrow,
     Food,
+    Console,
+    MagicBall,
+    Gamepad,
+    Folder,
+    FolderArrow,
+    Mail,
+    Phone,
+    Close,
 }

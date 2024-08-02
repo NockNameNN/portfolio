@@ -1,5 +1,5 @@
 'use client'
-import { BoltDownLeft, BoltDownRight, BoltUpLeft, BoltUpRight, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Food } from '@/public/icons';
+import { BoltDownLeft, BoltDownRight, BoltUpLeft, BoltUpRight, Food, Arrow } from '@/public/icons';
 import { useEffect, useRef, useState } from 'react';
 import { Transition } from 'react-transition-group';
 import { useRouter } from 'next/navigation'
@@ -99,11 +99,11 @@ export default function Game() {
                                 <p>{'//'} на клавиатуре</p>
                             </div>
                             <div className='flex flex-col items-center gap-[5px]'>
-                                <button className='w-[50px] h-[30px] border rounded-lg bg-background flex items-center justify-center hover:bg-[#010C15D8] hover:shadow-hover-button'><ArrowUp /></button>
+                                <button className='w-[50px] h-[30px] border rounded-lg bg-background flex items-center justify-center hover:bg-[#010C15D8] hover:shadow-hover-button'><Arrow className='rotate-180'/></button>
                                 <div className='flex gap-[5px]'>
-                                    <button className='w-[50px] h-[30px] border rounded-lg bg-background flex items-center justify-center hover:bg-[#010C15D8] hover:shadow-hover-button'><ArrowLeft /></button>
-                                    <button className='w-[50px] h-[30px] border rounded-lg bg-background flex items-center justify-center hover:bg-[#010C15D8] hover:shadow-hover-button'><ArrowDown /></button>
-                                    <button className='w-[50px] h-[30px] border rounded-lg bg-background flex items-center justify-center hover:bg-[#010C15D8] hover:shadow-hover-button'><ArrowRight /></button>
+                                    <button className='w-[50px] h-[30px] border rounded-lg bg-background flex items-center justify-center hover:bg-[#010C15D8] hover:shadow-hover-button'><Arrow className='rotate-90' /></button>
+                                    <button className='w-[50px] h-[30px] border rounded-lg bg-background flex items-center justify-center hover:bg-[#010C15D8] hover:shadow-hover-button'><Arrow /></button>
+                                    <button className='w-[50px] h-[30px] border rounded-lg bg-background flex items-center justify-center hover:bg-[#010C15D8] hover:shadow-hover-button'><Arrow className='-rotate-90' /></button>
                                 </div>
                             </div>
                         </div>
