@@ -15,6 +15,7 @@ import FolderArrow from './folder-arrow.svg';
 import Mail from './mail.svg';
 import Phone from './phone.svg';
 import Close from './close.svg';
+import Comments from './comments.svg';
 
 export {
     BoltDownLeft,
@@ -34,4 +35,5 @@ export {
     Mail,
     Phone,
     Close,
+    Comments,
 }

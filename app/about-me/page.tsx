@@ -6,11 +6,12 @@ import Menu from "@/components/aboutMe/Menu";
 import SubMenu from "@/components/aboutMe/SubMenu";
 import Content from "@/components/aboutMe/Content";
 import data from '@/developerData.json';
+import Snippets from "@/components/aboutMe/Snippets";
 
 const iconComponents: Record<string, JSX.Element> = {
-    Console: <Console className="cursor-pointer hover:opacity-100" />,
-    MagicBall: <MagicBall className="cursor-pointer hover:opacity-100" />,
-    Gamepad: <Gamepad className="cursor-pointer hover:opacity-100" />
+    Console: <Console />,
+    MagicBall: <MagicBall />,
+    Gamepad: <Gamepad />
 };
 
 export default function AboutMe() {
@@ -24,7 +25,7 @@ export default function AboutMe() {
     const menuItems = data.aboutMe.menuItems.map(item => 
         React.cloneElement(iconComponents[item.icon], {
             key: item.key,
-            className: `${selectedMenu === item.key ? 'opacity-100' : 'opacity-40'}`
+            className: `cursor-pointer hover:opacity-100 ${selectedMenu === item.key ? 'opacity-100' : 'opacity-40'}`
         })
     );
 
@@ -53,6 +54,7 @@ export default function AboutMe() {
                         subhead={subMenuItems[selectedMenu].title} 
                         content={contents[selectedMenu][selectedSubMenu]} 
                     />
+                    <Snippets />
                 </div>
             )}
         </CSSTransition>

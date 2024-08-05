@@ -38,7 +38,7 @@ export default function Content({ subhead, content }: IProps) {
     };
 
     return (
-        <div className='w-[700px] border-r'>
+        <div className='flex flex-col w-[800px] border-r'>
             <div className='flex'>
                 <div className="subhead gap-12 pr-3 w-fit border-r flex-none text-label">
                     {subhead}
@@ -46,25 +46,30 @@ export default function Content({ subhead, content }: IProps) {
                 </div>
                 <div className='subhead w-full'></div>
             </div>  
-            <div className='flex mt-5'>
-                <div className='ml-10 lg:flex flex-col w-16 min-w-[4rem] hidden'>
-                    {Array.from({ length: lineCount }, (_, index) => (
-                        <div
-                            key={index}
-                            className="grid grid-cols-2 gap-10 items-center"
-                        >
-                            <span className="col-span-1 text-right">{index + 1}</span>
-                            <div className="col-span-1">{getLineContent(index)}</div>
-                        </div>
+            <div className='flex h-full grow-1'>
+                <div className='flex mt-5'>
+                    <div className='ml-10 lg:flex flex-col w-16 min-w-[4rem] hidden'>
+                        {Array.from({ length: lineCount }, (_, index) => (
+                            <div
+                                key={index}
+                                className="grid grid-cols-2 gap-10 items-center"
+                            >
+                                <span className="col-span-1 text-right">{index + 1}</span>
+                                <div className="col-span-1">{getLineContent(index)}</div>
+                            </div>
                     ))}
+                    </div>
+                    <div className='flex-1 text-container pl-4 pr-16'>
+                        <pre
+                            ref={contentRef}
+                            className='whitespace-pre-wrap'
+                        >
+                            {`\n${content}`}
+                        </pre>
+                    </div>
                 </div>
-                <div className='flex-1 text-container pl-4'>
-                    <pre
-                        ref={contentRef}
-                        className='whitespace-pre-wrap'
-                    >
-                        {`\n${content}`}
-                    </pre>
+                <div className='flex justify-center border-l'>
+                    <div className='h-1.5 mx-1 w-3.5 mt-1 bg-gray'></div>
                 </div>
             </div>
         </div>

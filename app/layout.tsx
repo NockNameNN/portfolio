@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import localFont from 'next/font/local';
+import 'highlight.js/styles/github-dark.css';
 import "./globals.css";
 
 const firaCode = localFont({
