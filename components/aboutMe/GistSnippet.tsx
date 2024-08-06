@@ -127,7 +127,7 @@ const GistSnippet: React.FC<GistSnippetProps> = ({ id }) => {
                 </div>
             </div>
         </div>
-        <div className="bg-[#011221] p-2 rounded-lg border border-[#1E2D3D] text-xs max-h-[220px]">
+        <div className="bg-black-dark p-2 rounded-lg border text-xs max-h-[220px]">
             <pre className="m-0 w-full max-h-[220px]">
                 <code
                     className="hljs"

@@ -2,12 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+.snippets-entered {
+  animation: show-snippets .5s forwards;
+}
+
 .console-entered {
   animation: show-console .5s forwards;
 }
 
 .main-entered {
   animation: show-main .5s forwards;
+}
+
+@keyframes show-snippets {
+  0% {
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @keyframes show-console {
