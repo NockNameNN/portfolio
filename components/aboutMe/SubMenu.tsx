@@ -23,7 +23,7 @@ const SubMenu: React.FC<IProps> = ({items, onSelect, folderColors, active}) => {
               <Arrow />
               <p>{items.title}</p>
           </div>
-          <ul className="flex flex-col pl-[14px] gap-2 pt-4 pb-7 border-b">
+          <ul className="flex flex-col pl-3.5 gap-2 pt-4 pb-7 border-b">
               {items.items.map((item, index) => (
                   <li
                       key={index}
@@ -42,7 +42,7 @@ const SubMenu: React.FC<IProps> = ({items, onSelect, folderColors, active}) => {
               <Arrow />
               <p>contacts</p>
           </div>
-          <div className="flex flex-col pl-[14px] gap-2 pt-4">
+          <div className="flex flex-col pl-3.5 gap-2 pt-4">
               <a
                   onClick={() => {}}
                   className={commonClasses}

@@ -36,7 +36,7 @@ export default function Header() {
                 href={contacts[contacts.length-1][1]}
                 target="_blank"
             >
-                <span className="mr-[5px]">@nocknamenn</span>
+                <span className="hidden md:block mr-[5px]">@nocknamenn</span>
                 {contacts[contacts.length-1][0]}
             </Link>
         </footer>

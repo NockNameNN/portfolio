@@ -60,7 +60,7 @@ export default function Game() {
             <Transition
                 in={true}
                 timeout={300}
-            >{state => <div className={`relative h-[475px] w-[510px] bg-gradient-game rounded-[10px] console-${state}`}>
+            >{state => <div className={`relative h-[475px] w-[510px] bg-gradient-game rounded-[10px] console-${state} hidden lg:block`}>
 
                 <BoltDownLeft className='absolute bottom-2 left-2'/>
                 <BoltDownRight className='absolute bottom-2 right-2'/>

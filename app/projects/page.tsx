@@ -10,7 +10,10 @@ export default function Projects() {
           timeout={300}
       >
           {state => (
-              <div className={`main-${state} mx-auto grid grid-cols-3 gap-x-20 gap-y-10`}>
+              <main
+                  id='main'
+                  className={`main-${state} mx-auto grid grid-cols-3 gap-x-20 gap-y-10`}
+              >
                   {data.projects.map(project => (
                       <Project
                           key={project.title}
@@ -20,7 +23,7 @@ export default function Projects() {
                           url={project.url}
                       />
                   ))}
-              </div>)}
+              </main>)}
       </CSSTransition>     
   )
 }

@@ -39,7 +39,10 @@ export default function AboutMe() {
             timeout={300}
         >
             {state => (
-                <div className={`main-${state} flex w-full grow`}>
+                <main
+                    id='main'
+                    className={`main-${state} flex w-full grow`}
+                >
                     <Menu
                         items={menuItems}
                         onSelect={setSelectedMenu}
@@ -55,7 +58,7 @@ export default function AboutMe() {
                         content={contents[selectedMenu][selectedSubMenu]} 
                     />
                     <Snippets />
-                </div>
+                </main>
             )}
         </CSSTransition>
     );

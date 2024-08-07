@@ -16,6 +16,7 @@ import Mail from './mail.svg';
 import Phone from './phone.svg';
 import Close from './close.svg';
 import Comments from './comments.svg';
+import Link from './link.svg';
 
 export {
     BoltDownLeft,
@@ -36,4 +37,5 @@ export {
     Phone,
     Close,
     Comments,
+    Link,
 }

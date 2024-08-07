@@ -6,8 +6,8 @@ export default function Hello() {
     return (
         <div className="text-white-header">
             <div>Всем привет! Меня зовут</div>
-            <div className="text-head font-normal">Руслан Сагдиев</div>
-            <div className='text-blue text-subhead'>
+            <div className="text-head font-normal leading-none py-4">Руслан Сагдиев</div>
+            <div className='text-blue text-[20px] md:text-subhead'>
                 <div className='inline mr-5'>{">"}</div>
                 <TypeAnimation
                     sequence={[
@@ -29,9 +29,14 @@ export default function Hello() {
                     <Link
                         href="https://github.com/NockNameNN/portfolio"
                         target='_blank'
-                        className='text-red underline underline-offset- decoration-solid'
+                        className='hidden text-red underline underline-offset- decoration-solid md:flex'
                         
                     >&quot;https://github.com/NockNameNN/portfolio&quot;</Link>
+                    <Link
+                        href="https://github.com/NockNameNN/portfolio"
+                        target='_blank'
+                        className='text-red underline underline-offset- decoration-solid md:hidden'
+                    >&quot;https://github.com/...&quot;</Link>
                 </div>
             </div>
             

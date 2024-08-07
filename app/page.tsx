@@ -9,10 +9,17 @@ export default function Home() {
           in={true}
           timeout={300}
       >
-          {state => <div className={`flex items-center justify-between mx-[311px] main-${state}`}>
-              <Hello />
-              <Game />
-          </div>}
+          {state => <main
+              id='main'
+              className={`main-${state} flex mx-5 items-center justify-between`}
+                    >
+              <div className="flex-1 flex items-center justify-center h-full">
+                  <Hello />
+              </div>
+              <div className="lg:flex-1 flex items-center justify-center h-full">
+                  <Game />
+              </div>
+          </main>}
       </CSSTransition>
   );
 }
