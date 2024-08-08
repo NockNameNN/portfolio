@@ -37,8 +37,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ru">
-            <body className={`${firaCode.className} font-retina text-gray text-body bg-background h-screen p-[15px] overflow-hidden lg:p-[30px] `}>
-                <div className="flex flex-col justify-between bg-black-light border rounded-lg h-full">
+            <body className={`${firaCode.className} font-retina text-gray text-body bg-background h-screen p-[15px] lg:p-[30px] high-height:overflow-hidden`}>
+                <div
+                    id='subbody'
+                    className="flex flex-col justify-between bg-black-light border rounded-lg h-content lg:h-full high-height:h-full"
+                >
                     <Header />
                     {children}
                     <Footer />

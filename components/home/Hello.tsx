@@ -19,9 +19,9 @@ export default function Hello() {
                     className='inline'
                 />
             </div>
-            <div className='flex flex-col gap-y-2.5 mt-[80px] text-label text-gray '>
-                <div>{'//'} завершите игру для продолжения</div>
-                <div>{'//'} можете посмотреть её на GitHub</div>
+            <div className='flex flex-col gap-y-2.5 mt-[10px] md:mt-[80px] text-label text-gray '>
+                <div className='hidden md:block high-height:block'>{'//'} завершите игру для продолжения</div>
+                <div>{'//'} можете посмотреть на GitHub</div>
                 <div className='font-medium'>
                     <span className='text-blue'>const </span>
                     <span className='text-green-light'>githubLink </span>

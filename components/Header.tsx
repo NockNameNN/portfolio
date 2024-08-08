@@ -18,11 +18,18 @@ export default function Header() {
     
     const handlerBurger = () => {
         const main = document.getElementById('main');
+        const subbody = document.getElementById('subbody');
         if (main) {
             if (!isOpen) {
                 main.classList.add('hidden');
+                if (subbody) {
+                    subbody.classList.add('h-full')
+                }
             } else {
                 main.classList.remove('hidden');
+                if (subbody) {
+                    subbody.classList.remove('h-full')
+                }
             }
         }
     }

@@ -11,7 +11,7 @@ export default function Home() {
       >
           {state => <main
               id='main'
-              className={`main-${state} flex mx-5 items-center justify-between`}
+              className={`main-${state} flex mx-5 items-center justify-between p-0 sm:p-10`}
                     >
               <div className="flex-1 flex items-center justify-center h-full">
                   <Hello />
