@@ -7,7 +7,7 @@ interface IProps {
 
 const Menu: React.FC<IProps> = ({items, onSelect}) => {
   return (
-      <ul className="flex flex-col gap-[33px] w-[68px] pt-[17.46px] pl-[24px] border-r">
+      <ul className="hidden flex-col gap-[33px] w-[68px] pt-[17.46px] pl-[24px] border-r xl:flex">
           {items.map((item, index) => (
               <li
                   key={index}

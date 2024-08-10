@@ -15,7 +15,7 @@ const contacts: Item[] = [
 
 export default function Header() {
     return (
-        <footer className="w-full h-[50px] text-label border-t flex justify-between">
+        <footer className="w-full h-[50px] text-label border-t flex justify-between min-h-[50px]">
             <div className="flex">
                 <span className="px-3.5 content-center border-r">find me in:</span>
                 {contacts.slice(0, -1).map((contact, index) => {

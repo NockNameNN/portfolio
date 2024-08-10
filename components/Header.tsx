@@ -35,7 +35,7 @@ export default function Header() {
     }
 
     return (
-        <header className="w-full h-16 text-label border-b flex relative z-20 lg:h-[50px]">
+        <header className="w-full h-16 text-label border-b flex relative z-20 lg:h-[50px] lg:min-h-[50px]">
             <nav className="hidden lg:flex">
                 {navItems.map((item, index) => {
                     const isActive = pathname === item[1] && index !== 0;
@@ -52,7 +52,7 @@ export default function Header() {
                     )
                 })}
             </nav>
-            <div className="flex justify-between items-center mx-5 w-full lg:hidden">
+            <div className="flex h-16 min-h-16 justify-between items-center mx-5 w-full lg:hidden">
                 <Link
                     href={navItems[0][1]}
                 >

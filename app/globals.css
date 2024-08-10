@@ -45,10 +45,32 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.transition-rotate {
+  transition: transform 0.1s ease-in-out;
+}
+
 @layer components {
   .subhead {
     @apply flex items-center pl-3.5 py-2.5 border-b;
   }
+
+  .commonClasses {
+    @apply flex gap-3.5 items-center cursor-pointer hover:text-white;
+  }
+
+  .borderClasses {
+    @apply subhead gap-2.5 text-white cursor-pointer w-full
+  }
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* 

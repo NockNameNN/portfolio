@@ -29,7 +29,7 @@ export default function Hello() {
                     <Link
                         href="https://github.com/NockNameNN/portfolio"
                         target='_blank'
-                        className='hidden text-red underline underline-offset- decoration-solid md:flex'
+                        className='hidden text-red underline underline-offset- decoration-solid md:inline'
                         
                     >&quot;https://github.com/NockNameNN/portfolio&quot;</Link>
                     <Link

@@ -55,8 +55,8 @@ export default function Game() {
     
     return (
         <div>
-            <div className="absolute right-[-100px] bottom-[-200px] w-[500px] h-[500px] rounded-blurry-gradient rotate-10 blur-[70px] bg-blurry-gradient-blue opacity-50"></div>
-            <div className="absolute right-[200px] top-[-150px] w-[500px] h-[500px] rounded-blurry-gradient rotate-10 blur-[70px] bg-blurry-gradient-green opacity-50"></div>
+            <div className="absolute right-[0px] bottom-[-100px] w-[500px] h-[500px] rounded-blurry-gradient rotate-10 blur-[70px] bg-blurry-gradient-blue opacity-50"></div>
+            <div className="absolute right-[450px] top-[-150px] w-[500px] h-[500px] rounded-blurry-gradient rotate-10 blur-[70px] bg-blurry-gradient-green opacity-50"></div>
             <Transition
                 in={true}
                 timeout={300}

@@ -128,7 +128,7 @@ const GistSnippet: React.FC<GistSnippetProps> = ({ id }) => {
             </div>
         </div>
         <div className="bg-black-dark p-2 rounded-lg border text-xs max-h-[220px]">
-            <pre className="m-0 w-full max-h-[220px]">
+            <pre className="m-0 w-full max-h-[220px] overflow-auto">
                 <code
                     className="hljs"
                     dangerouslySetInnerHTML={{ __html: highlightjs.highlight(content!, { language: language! }).value }}

@@ -10,7 +10,7 @@ const gistIds = [
 const Snippets: React.FC = () => {
   return (
       <div className='flex grow mt-[44px] border-t'>
-          <div className='flex flex-col gap-8 grow mx-10 mt-5'>
+          <div className='flex overflow-auto flex-col gap-8 grow mx-10 mt-5'>
               <div>
                   {'// Демонстрация фрагментов кода:'}
               </div>
@@ -32,7 +32,7 @@ const Snippets: React.FC = () => {
                   )}
               </CSSTransition>
           </div>
-          <div className='flex justify-center border-l'>
+          <div className='hidden xl:flex justify-center border-l'>
               <div className='h-1.5 mx-1 w-3.5 mt-1 bg-gray'></div>
           </div>
       </div>

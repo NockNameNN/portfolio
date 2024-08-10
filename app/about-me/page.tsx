@@ -7,6 +7,7 @@ import SubMenu from "@/components/aboutMe/SubMenu";
 import Content from "@/components/aboutMe/Content";
 import data from '@/developerData.json';
 import Snippets from "@/components/aboutMe/Snippets";
+import MobileMenu from "@/components/aboutMe/MobileMenu";
 
 const iconComponents: Record<string, JSX.Element> = {
     Console: <Console />,
@@ -41,23 +42,37 @@ export default function AboutMe() {
             {state => (
                 <main
                     id='main'
-                    className={`main-${state} flex w-full grow`}
+                    className={`main-${state} flex flex-col xl:flex-row w-full grow overflow-auto xl:overflow-hidden`}
                 >
-                    <Menu
-                        items={menuItems}
-                        onSelect={setSelectedMenu}
-                    />
-                    <SubMenu 
-                        items={subMenuItems[selectedMenu]} 
-                        onSelect={setSelectedSubMenu} 
-                        folderColors={folderColors} 
-                        active={selectedSubMenu} 
-                    />
-                    <Content 
-                        subhead={subMenuItems[selectedMenu].title} 
-                        content={contents[selectedMenu][selectedSubMenu]} 
-                    />
-                    <Snippets />
+                    <div className="flex flex-col xl:flex-row">
+                        <div className="flex h-[70px] mx-6 text-code text-white xl:hidden">
+                            <h2 className="self-center">_about-me</h2>
+                        </div>
+                        <Menu
+                            items={menuItems}
+                            onSelect={setSelectedMenu}
+                        />
+                        <SubMenu 
+                            items={subMenuItems[selectedMenu]} 
+                            onSelect={setSelectedSubMenu} 
+                            folderColors={folderColors} 
+                            active={selectedSubMenu}
+                        />
+                        <MobileMenu
+                            items={subMenuItems} 
+                            onSelect={setSelectedSubMenu} 
+                            folderColors={folderColors} 
+                            active={selectedSubMenu}
+                        />
+                    </div>
+                    <div className="flex flex-col h-content xl:grid xl:grid-cols-2 w-full xl:h-full">
+                        <Content 
+                            subhead={subMenuItems[selectedMenu].title} 
+                            content={contents[selectedMenu][selectedSubMenu]}
+                        />
+                        <Snippets />
+                    </div>
+
                 </main>
             )}
         </CSSTransition>
