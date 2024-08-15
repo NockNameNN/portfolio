@@ -11,7 +11,7 @@ export default function Project({title, description, img, url}: IProject) {
   return (
       <div className="flex text-code flex-col gap-3.5">
           <span className="font-bold text-[#5565E8]">{title}</span>
-          <div className="flex flex-col rounded-2xl h-64 w-96 border bg-black-dark">
+          <div className="flex flex-col rounded-2xl h-64 max-w-96 border bg-black-dark">
               <div className="overflow-hidden h-1/2 rounded-t-2xl border">
                   <Image
                       src={img}

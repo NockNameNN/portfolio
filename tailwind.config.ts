@@ -10,9 +10,13 @@ const config: Config = {
   theme: {
     screens: {
       'high-height': { 'raw': '(min-height: 500px)'},
+      'game-screen': { 'raw': '(min-height: 720px) and (min-width: 1024px)'},
       ...defaultTheme.screens,
     },
     extend: {
+      gridTemplateColumns: {
+        'game': 'repeat(24, minmax(0, 1fr))',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

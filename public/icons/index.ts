@@ -27,7 +27,6 @@ export {
     Telegram,
     Vk,
     Arrow,
-    Food,
     Console,
     MagicBall,
     Gamepad,

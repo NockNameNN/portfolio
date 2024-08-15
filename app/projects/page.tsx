@@ -12,7 +12,7 @@ export default function Projects() {
           {state => (
               <main
                   id='main'
-                  className={`main-${state} mx-auto grid grid-cols-3 gap-x-20 gap-y-10`}
+                  className={`main-${state} mx-auto grid md:grid-cols-2 xl:grid-cols-3 gap-x-20 gap-y-10 overflow-auto p-5`}
               >
                   {data.projects.map(project => (
                       <Project
