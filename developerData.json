@@ -65,7 +65,7 @@
         {
             "title": "Аспирантура СФУ",
             "description": "Сайт аспирантуры Сибирского Федерального Университета (в разработке)",
-            "img": "/img/postgraduateSFU.png",
+            "img": "img/postgraduateSFU.png",
             "url": [
                 {
                     "type": "video-demo",
@@ -76,31 +76,31 @@
         {
             "title": "Пусто",
             "description": "Пока пусто :(",
-            "img": "/img/nothing.jpg",
+            "img": "img/nothing.jpg",
             "url": []
         },
         {
             "title": "Пусто",
             "description": "Пока пусто :(",
-            "img": "/img/nothing.jpg",
+            "img": "img/nothing.jpg",
             "url": []
         },
         {
             "title": "Пусто",
             "description": "Пока пусто :(",
-            "img": "/img/nothing.jpg",
+            "img": "img/nothing.jpg",
             "url": []
         },
         {
             "title": "Пусто",
             "description": "Пока пусто :(",
-            "img": "/img/nothing.jpg",
+            "img": "img/nothing.jpg",
             "url": []
         },
         {
             "title": "Пусто",
             "description": "Пока пусто :(",
-            "img": "/img/nothing.jpg",
+            "img": "img/nothing.jpg",
             "url": []
         }
     ]
