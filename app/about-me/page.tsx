@@ -15,6 +15,26 @@ const iconComponents: Record<string, JSX.Element> = {
     Gamepad: <Gamepad />
 };
 
+function calculateExperience(startDate: string) {
+    const start = new Date(startDate);
+    const now = new Date();
+    const yearsDiff = now.getFullYear() - start.getFullYear();
+    const monthsDiff = now.getMonth() - start.getMonth() + 4;
+    
+    const totalMonths = yearsDiff * 12 + monthsDiff;
+    
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
+
+    if (years > 0 && months > 0) {
+        return `${years} год${years > 1 ? 'а' : ''} и ${months} месяц${months > 1 ? 'а' : ''}`;
+    } else if (years > 0) {
+        return `${years} год${years > 1 ? 'а' : ''}`;
+    } else {
+        return `${months} месяц${months > 1 ? 'а' : ''}`;
+    }
+}
+
 export default function AboutMe() {
     const [selectedMenu, setSelectedMenu] = useState<number>(0);
     const [selectedSubMenu, setSelectedSubMenu] = useState<number>(0);
@@ -30,9 +50,14 @@ export default function AboutMe() {
         })
     );
 
+    const startDate = '2024-01-30';
+    const experienceFormatted = calculateExperience(startDate);
+
     const subMenuItems = data.aboutMe.subMenuItems;
     const folderColors = data.aboutMe.folderColors;
     const contents = data.aboutMe.contents;
+
+    contents[0][0] = `Опыт разработки - ${experienceFormatted}.\nПоследний разрабатываемый проект (февраль 2024 - н.в.) - сайт аспирантуры для Сибирского Федерального Университета.\nМоими обязанностями в процессе работы являются:\n\n- Разработка frontend части сайта аспирантуры, используя HTML, CSS, TypeScript, React, API, SCSS и другие современные веб-технологии.\n\n- Интеграция и взаимодействие с backend через RESTful API для реализации функциональности пользовательских интерфейсов.\n\n- Оптимизация производительности и обеспечение адаптивного дизайна веб-приложения.\n\nТакже проходил три летних практики в SibDev, студии веб-разработки и сопровождения.`;
 
     return (
         <CSSTransition
