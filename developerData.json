@@ -47,7 +47,7 @@
         "contents": [
             [
                 "В about-me переопределение",
-                "Мой стек технологий:\n- HTML, CSS (flex, grid)\n- JavaScript, TypeScript\n- React, Next.js\n- Redux, Redux-toolkit\n- React Hook Form, React Transition Group\n- SCSS, CSS Modules, CSS Frameworks (Tailwind CSS, Bootstrap, MUI и другие)\n- Git (GitHub, GitLab)\n- Webpack\n\nЕсть опыт интеграций с бэкендом через RESTful API, знаком с GraphQL.\nРеализую адаптивную верстку.",
+                "Мой стек технологий:\n- HTML, CSS (flex, grid)\n- JavaScript, TypeScript\n- React, Next.js\n- Redux, Redux-toolkit\n- WebRTC, socket.io(socket.io-client)\n- React Hook Form, React Transition Group\n- SCSS, CSS Modules, CSS Frameworks (Tailwind CSS, Bootstrap, MUI и другие)\n- Git (GitHub, GitLab)\n- Webpack\n\nЕсть опыт интеграций с бэкендом через RESTful API, знаком с GraphQL.\nРеализую адаптивную верстку.",
                 "- Тайм-менеджмент: Эффективно управляю временем и приоритетами, укладываясь в дедлайн.\n\n- Работа в команде: Имеется опыт сотрудничества в командах для достижения общих целей.\n\n- Коммуникации: Ясно выражаю мысли, умею слушать и понимать людей.\n\n- Решение проблем: Анализирую ситуации и нахожу оптимальные решения."
             ],
             [
