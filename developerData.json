@@ -50,7 +50,7 @@
     {
       "title": "Аспирантура СФУ",
       "description": "Сайт аспирантуры Сибирского Федерального Университета",
-      "img": "/img/postgraduateSFU.png",
+      "img": "img/postgraduateSFU.png",
       "url": [
         {
           "type": "video-demo",
@@ -61,7 +61,7 @@
     {
       "title": "Автоматизированная система управления закупками",
       "description": "Разрабатывал в команде для уральской горно-металлургической компании",
-      "img": "/img/UGMK.png",
+      "img": "img/UGMK.png",
       "url": []
     },
     {
