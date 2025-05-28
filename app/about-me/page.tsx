@@ -61,7 +61,7 @@ export default function AboutMe() {
     })
   );
 
-  const startDate = '2024-01-30';
+  const startDate = '2023-09-01';
   const experienceFormatted = calculateExperience(startDate);
 
   const subMenuItems = data.aboutMe.subMenuItems;
