@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 .snippets-entered {
-  animation: show-snippets .5s forwards;
+  animation: show-snippets 0.5s forwards;
 }
 
 .console-entered {
-  animation: show-console .5s forwards;
+  animation: show-console 0.5s forwards;
 }
 
 .main-entered {
-  animation: show-main .5s forwards;
+  animation: show-main 0.5s forwards;
 }
 
 @keyframes show-snippets {
@@ -64,7 +64,7 @@
   }
 
   .borderClasses {
-    @apply subhead gap-2.5 text-white cursor-pointer w-full
+    @apply subhead gap-2.5 text-white cursor-pointer w-full;
   }
 
   .food {

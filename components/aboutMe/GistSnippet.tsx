@@ -53,8 +53,8 @@ const GistSnippet: React.FC<GistSnippetProps> = ({ id }) => {
 
   useEffect(() => {
     fetch(`https://api.github.com/gists/${id}`)
-      .then(response => response.json())
-      .then(data => setValues(data));
+      .then((response) => response.json())
+      .then((data) => setValues(data));
   }, [id, setValues]);
 
   const setMonths = (date: string): number => {
@@ -90,67 +90,61 @@ const GistSnippet: React.FC<GistSnippetProps> = ({ id }) => {
 
   return (
     dataFetched && (
-    <div className="mb-5">
+      <div className="mb-5">
         <div className="flex justify-between my-2">
-            <div className="flex">
-                {gist?.owner.avatar_url && (
-                <Image
-                    src={gist.owner.avatar_url}
-                    width={36}
-                    height={36}
-                    alt="Аватарка"
-                    className="w-8 h-8 rounded-full mr-2"
-                />
+          <div className="flex">
+            {gist?.owner.avatar_url && (
+              <Image
+                src={gist.owner.avatar_url}
+                width={36}
+                height={36}
+                alt="Аватарка"
+                className="w-8 h-8 rounded-full mr-2"
+              />
             )}
-                <div className="flex flex-col">
-                    <a
-                        id="username"
-                        href={`https://github.com/${gist?.owner.login}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-bold text-purple-500 text-xs pb-1 hover:cursor-pointer"
-                    >
-                        @{gist?.owner.login}
-                    </a>
-                    <p className="text-xs text-gray-500">
-                        Создано {monthsAgo} месяцев назад
-                    </p>
-                </div>
+            <div className="flex flex-col">
+              <a
+                id="username"
+                href={`https://github.com/${gist?.owner.login}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-purple-500 text-xs pb-1 hover:cursor-pointer"
+              >
+                @{gist?.owner.login}
+              </a>
+              <p className="text-xs text-gray-500">Создано {monthsAgo} месяцев назад</p>
             </div>
-            <div className="flex text-gray-500 text-xs justify-self-end lg:mx-2">
-                <div
-                    className="flex lg:mx-2 hover:cursor-pointer hover:text-white"
-                    onClick={() => showComment(gist!.id)}
-                >
-                    <Comments className='mr-2' />
-                    <span>комментарий</span>
-                </div>
+          </div>
+          <div className="flex text-gray-500 text-xs justify-self-end lg:mx-2">
+            <div
+              className="flex lg:mx-2 hover:cursor-pointer hover:text-white"
+              onClick={() => showComment(gist!.id)}
+            >
+              <Comments className="mr-2" />
+              <span>комментарий</span>
             </div>
+          </div>
         </div>
         <div className="bg-black-dark p-2 rounded-lg border text-xs max-h-[220px]">
-            <pre className="m-0 w-full max-h-[220px] overflow-auto">
-                <code
-                    className="hljs"
-                    dangerouslySetInnerHTML={{ __html: highlightjs.highlight(content!, { language: language! }).value }}
-                />
-            </pre>
+          <pre className="m-0 w-full max-h-[220px] overflow-auto">
+            <code
+              className="hljs"
+              dangerouslySetInnerHTML={{
+                __html: highlightjs.highlight(content!, { language: language! }).value,
+              }}
+            />
+          </pre>
         </div>
         <div
-            id={'comment' + gist!.id}
-            className="flex hidden justify-between text-gray-500 mt-4 pt-4 border-t"
+          id={'comment' + gist!.id}
+          className="flex hidden justify-between text-gray-500 mt-4 pt-4 border-t"
         >
-            <p
-                id="comment"
-                className="w-5/6"
-            >
-                {comment ? comment : 'Нет комментариев.'}
-            </p>
-            <Close
-                className="cursor-pointer"
-                onClick={() => showComment(gist!.id)}
-            />
+          <p id="comment" className="w-5/6">
+            {comment ? comment : 'Нет комментариев.'}
+          </p>
+          <Close className="cursor-pointer" onClick={() => showComment(gist!.id)} />
         </div>
-    </div>
+      </div>
     )
   );
 };
