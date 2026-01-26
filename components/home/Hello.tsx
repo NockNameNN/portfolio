@@ -5,7 +5,7 @@ import { TypeAnimation } from 'react-type-animation';
 export default function Hello() {
   return (
     <div className="text-white-header">
-      <div>Всем привет! Меня зовут</div>
+      <div>Добрый день! Меня зовут</div>
       <div className="text-head font-normal leading-none py-4">Руслан Сагдиев</div>
       <div className="text-blue text-[20px] md:text-subhead">
         <div className="inline mr-5">{'>'}</div>

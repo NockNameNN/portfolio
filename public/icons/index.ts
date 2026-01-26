@@ -15,6 +15,7 @@ import FolderArrow from './folder-arrow.svg';
 import Mail from './mail.svg';
 import Phone from './phone.svg';
 import Close from './close.svg';
+import Clock from './clock.svg';
 import Comments from './comments.svg';
 import Link from './link.svg';
 
@@ -35,6 +36,7 @@ export {
     Mail,
     Phone,
     Close,
+    Clock,
     Comments,
     Link,
 }

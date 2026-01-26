@@ -45,6 +45,21 @@
   }
 }
 
+@keyframes modal-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-modal-in {
+  animation: modal-in 0.2s ease-out forwards;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;

@@ -18,6 +18,11 @@ export default function Projects() {
               description={project.description}
               img={project.img}
               url={project.url}
+              media={project.media}
+              startDate={project.startDate}
+              endDate={project.endDate}
+              technologies={project.technologies}
+              implemented={project.implemented}
             />
           ))}
         </main>

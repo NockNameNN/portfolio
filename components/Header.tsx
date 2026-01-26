@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Sling as Hamburger } from 'hamburger-react';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 const navItems = [
@@ -16,7 +16,7 @@ export default function Header() {
   const [isOpen, setOpen] = useState(false);
   const pathname = usePathname();
 
-  const handlerBurger = () => {
+  const handlerBurger = useCallback(() => {
     const main = document.getElementById('main');
     const subbody = document.getElementById('subbody');
     if (main) {
@@ -32,7 +32,7 @@ export default function Header() {
         }
       }
     }
-  };
+  }, [isOpen]);
 
   return (
     <header className="w-full h-16 text-label border-b flex relative z-20 lg:h-[50px] lg:min-h-[50px]">
@@ -42,10 +42,10 @@ export default function Header() {
           return (
             <Link
               className={`px-6 h-full content-center border-r hover:bg-line 
-                                ${index === 0 ? 'pr-[154px]' : 'hover:text-white'} 
-                                ${
-                                  isActive && 'text-white border-b-[3px] border-b-orange border-3'
-                                }`}
+                ${index === 0 ? 'pr-[154px]' : 'hover:text-white'} 
+                ${
+                  isActive && 'text-white border-b-[3px] border-b-orange border-3'
+               }`}
               href={item[1]}
               key={index}
             >
@@ -56,7 +56,7 @@ export default function Header() {
       </nav>
       <div className="flex h-16 min-h-16 justify-between items-center mx-5 w-full lg:hidden">
         <Link href={navItems[0][1]}>{navItems[0][0]}</Link>
-        <button type="button" onClick={handlerBurger}>
+        <button type="button" onClick={() => handlerBurger()}>
           <Hamburger toggled={isOpen} toggle={setOpen} />
         </button>
 
@@ -74,8 +74,8 @@ export default function Header() {
                       href={item[1]}
                       key={index}
                       onClick={() => {
-                        handlerBurger;
                         setOpen(false);
+                        handlerBurger();
                       }}
                     >
                       {item[0]}
