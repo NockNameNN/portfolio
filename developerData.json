@@ -50,7 +50,7 @@
     {
       "title": "Админ-панель MakSec DDP для сетевых инженеров",
       "description": "Разрабатывал админ-панель для управления инцидентами безопасности, приманками, инфраструктурой и профилями сканирования с системой ролей и прав доступа",
-      "img": "/img/maksecDDP.png",
+      "img": "img/maksecDDP.png",
       "url": [],
       "startDate": "2026-01-01",
       "technologies": ["React", "TypeScript", "Vite", "Redux Toolkit", "RTK Query", "React Hook Form", "Zod", "SCSS Modules", "Ant Design", "Recharts", "Vitest", "Testing Library"],
@@ -76,7 +76,7 @@
     {
       "title": "Лендинг MakSec",
       "description": "Реализовал лендинг MakSec: информация о продуктах, блог и форма обратной связи.",
-      "img": "/img/maksecLanding.png",
+      "img": "img/maksecLanding.png",
       "url": [{
         "type": "website",
         "url": "https://maksec.ru"
@@ -95,7 +95,7 @@
     {
       "title": "Админ-панель онлайн-школы Spring",
       "description": "Реализовал админ-панель для управления сотрудниками, расписанием и записями с системой ролей и прав доступа.",
-      "img": "/img/spring.png",
+      "img": "img/spring.png",
       "url": [],
       "startDate": "2025-11-01",
       "endDate": "2025-12-31",
@@ -111,7 +111,7 @@
     {
       "title": "Админ-панель системы кибербезопасности",
       "description": "Разрабатывал в одиночку админ-панель для мониторинга угроз безопасности и управлением ими",
-      "img": "/img/maksecAdmin.png",
+      "img": "img/maksecAdmin.png",
       "url": [],
       "startDate": "2025-06-01",
       "endDate": "2025-10-31",
@@ -130,7 +130,7 @@
     {
       "title": "Автоматизированная система управления закупками",
       "description": "Разрабатывал в команде для уральской горно-металлургической компании",
-      "img": "/img/UGMK.png",
+      "img": "img/UGMK.png",
       "url": [],
       "startDate": "2024-06-01",
       "endDate": "2025-05-31",
@@ -145,10 +145,10 @@
     {
       "title": "Аспирантура СФУ",
       "description": "Разработал веб-приложение для управления учебными планами аспирантов",
-      "img": "/img/postgraduateSFU.png",
+      "img": "img/postgraduateSFU.png",
       "url": [],
       "media": {
-        "video": "/videos/SFU.mp4"
+        "video": "videos/SFU.mp4"
       },
       "startDate": "2023-10-01",
       "endDate": "2024-05-31",
