@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useCallback, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Clock } from '@/public/icons';
+import { reachGoal } from '@/lib/metrika';
 
 interface IProjectMedia {
   video?: string;
@@ -86,6 +87,7 @@ export default function Project({
   useEffect(() => {
     if (!isModalOpen) return;
 
+    reachGoal('project_detail_open');
     closeBtnRef.current?.focus();
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeModal();
