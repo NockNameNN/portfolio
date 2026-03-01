@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import YandexMetrika from '@/components/YandexMetrika';
 import localFont from 'next/font/local';
 import 'highlight.js/styles/github-dark.css';
 import './globals.css';
@@ -40,6 +41,7 @@ export default function RootLayout({
       <body
         className={`${firaCode.className} font-retina text-gray text-body bg-background h-screen p-[15px] lg:p-[30px] high-height:overflow-hidden`}
       >
+        <YandexMetrika />
         <div
           id="subbody"
           className="flex flex-col justify-between bg-black-light border rounded-lg h-content lg:h-full high-height:h-full"
