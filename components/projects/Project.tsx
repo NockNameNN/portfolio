@@ -87,7 +87,7 @@ export default function Project({
   useEffect(() => {
     if (!isModalOpen) return;
 
-    reachGoal('project_detail_open');
+    reachGoal('project_detail_open', { project_title: title });
     closeBtnRef.current?.focus();
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeModal();
