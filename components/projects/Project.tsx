@@ -11,6 +11,8 @@ interface IProjectMedia {
   photos?: string[];
 }
 
+export type ProjectType = 'admin' | 'site' | 'wip';
+
 interface IProject {
   title: string;
   description: string;
@@ -21,41 +23,51 @@ interface IProject {
   endDate?: string;
   technologies?: string[];
   implemented?: string[];
+  types?: ProjectType[];
 }
 
-// Функция для форматирования даты в "МММ YYYY"
+const TYPE_LABELS: Record<ProjectType, string> = {
+  admin: 'админка',
+  site: 'сайт',
+  wip: 'в работе',
+};
+
+const TYPE_STYLES: Record<ProjectType, string> = {
+  admin: 'border-purpure/40 text-purpure bg-purpure/10',
+  site: 'border-green-light/40 text-green-light bg-green-light/10',
+  wip: 'border-orange/40 text-orange bg-orange/10',
+};
+
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
   const months = [
     'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
-    'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'
+    'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек',
   ];
   return `${months[date.getMonth()]} ${date.getFullYear()}`;
 }
 
-// Функция для расчёта количества месяцев между датами
 function calculateMonths(startDate: string, endDate?: string): number {
   const start = new Date(startDate);
   const end = endDate ? new Date(endDate) : new Date();
-  
+
   const yearsDiff = end.getFullYear() - start.getFullYear();
   const monthsDiff = end.getMonth() - start.getMonth();
-  
-  return yearsDiff * 12 + monthsDiff + 1; // +1 чтобы включить оба месяца
+
+  return yearsDiff * 12 + monthsDiff + 1;
 }
 
-// Функция для форматирования длительности
 function formatDuration(months: number): string {
   if (months < 12) {
     return `${months} ${months === 1 ? 'месяц' : months < 5 ? 'месяца' : 'месяцев'}`;
   }
   const years = Math.floor(months / 12);
   const remainingMonths = months % 12;
-  
+
   if (remainingMonths === 0) {
     return `${years} ${years === 1 ? 'год' : years < 5 ? 'года' : 'лет'}`;
   }
-  
+
   const yearStr = `${years} ${years === 1 ? 'год' : years < 5 ? 'года' : 'лет'}`;
   const monthStr = `${remainingMonths} ${remainingMonths === 1 ? 'месяц' : remainingMonths < 5 ? 'месяца' : 'месяцев'}`;
   return `${yearStr} ${monthStr}`;
@@ -71,10 +83,11 @@ export default function Project({
   endDate,
   technologies = [],
   implemented = [],
+  types = [],
 }: IProject) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [videoError, setVideoError] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
 
   const closeModal = useCallback(() => setIsModalOpen(false), []);
@@ -99,59 +112,82 @@ export default function Project({
       document.body.style.overflow = '';
       cardRef.current?.focus({ preventScroll: true });
     };
-  }, [isModalOpen, closeModal]);
+  }, [isModalOpen, closeModal, title]);
 
   return (
     <>
-      <div className="relative flex text-code flex-col gap-3.5">
-        <div className="flex items-center gap-2">
-          <span className="font-bold text-blue">{title}</span>
+      <article
+        ref={cardRef}
+        role="button"
+        tabIndex={0}
+        onClick={() => setIsModalOpen(true)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setIsModalOpen(true);
+          }
+        }}
+        className="group flex h-full flex-col overflow-hidden rounded-xl border border-line bg-black-dark text-code cursor-pointer transition-colors duration-200 hover:border-blue/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue/50"
+      >
+        <div className="relative aspect-[16/10] shrink-0 overflow-hidden border-b border-line bg-black">
+          <Image
+            src={img}
+            alt={`project ${title}`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+          {types.length > 0 && (
+            <div className="absolute left-3 top-3 flex flex-wrap gap-1.5">
+              {types.map((type) => (
+                <span
+                  key={type}
+                  className={`rounded border px-2 py-0.5 text-[10px] uppercase tracking-wide backdrop-blur-sm ${TYPE_STYLES[type]}`}
+                >
+                  {TYPE_LABELS[type]}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
-        <div
-          ref={cardRef}
-          role="button"
-          tabIndex={0}
-          onClick={() => setIsModalOpen(true)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              setIsModalOpen(true);
-            }
-          }}
-          className="flex flex-col rounded-2xl h-64 max-w-96 border bg-black-dark cursor-pointer hover:border-blue/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue/50"
-        >
-          <div className="overflow-hidden h-1/2 rounded-t-2xl border-b-0">
-            <Image src={img} alt={`project ${title}`} height={1000} width={1000} />
-          </div>
-          <div className="p-5 flex flex-col justify-between grow border-t">{startDate && (
-              <div className="flex items-center gap-1.5 text-xs text-gray shrink-0 mb-1">
-                <Clock className="w-3 h-3 text-blue shrink-0" aria-hidden="true" />
-                <span>
-                  {formatDate(startDate)} — {endDate ? formatDate(endDate) : 'н.в.'}
-                </span>
-                <span className="text-blue font-medium">
-                  · {formatDuration(calculateMonths(startDate, endDate))}
-                </span>
-              </div>
-            )}
-            <span className="text-gray">{description}</span>
-            <div className="flex gap-5 flex-wrap">
-              {url.map((link) => (
+
+        <div className="flex flex-1 flex-col gap-3 p-5">
+          <h3 className="text-label font-bold leading-snug text-blue line-clamp-2">{title}</h3>
+
+          {startDate && (
+            <div className="flex items-center gap-1.5 text-xs text-gray">
+              <Clock className="h-3 w-3 shrink-0 text-blue" aria-hidden="true" />
+              <span>
+                {formatDate(startDate)} — {endDate ? formatDate(endDate) : 'н.в.'}
+              </span>
+              <span className="font-medium text-blue">
+                · {formatDuration(calculateMonths(startDate, endDate))}
+              </span>
+            </div>
+          )}
+
+          <p className="text-xs leading-relaxed text-gray line-clamp-3">{description}</p>
+
+          <div className="mt-auto flex flex-wrap items-center gap-2 border-t border-line pt-4">
+            {url.length > 0 ? (
+              url.map((link) => (
                 <a
                   href={link.url}
                   key={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white text-xs px-5 py-1.5 bg-black-light rounded-lg w-fit hover:bg-line transition-colors"
+                  className="rounded-lg border border-line bg-black-light px-3.5 py-2 text-xs text-white transition-colors hover:border-blue/40 hover:bg-line"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {link.type}
                 </a>
-              ))}
-            </div>
+              ))
+            ) : (
+              <span className="text-xs text-gray">Подробнее →</span>
+            )}
           </div>
         </div>
-      </div>
+      </article>
 
       {isModalOpen &&
         typeof document !== 'undefined' &&
@@ -171,131 +207,139 @@ export default function Project({
               className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-2xl border border-line bg-black-dark shadow-2xl flex flex-col animate-modal-in"
               onClick={(e) => e.stopPropagation()}
             >
-            <div className="flex items-center justify-between shrink-0 px-6 py-4 border-b border-line">
-              <h2 id="project-modal-title" className="text-label font-bold text-blue">
-                {title}
-              </h2>
-              <button
-                ref={closeBtnRef}
-                type="button"
-                onClick={closeModal}
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-line text-gray hover:border-blue hover:text-blue transition-colors"
-                aria-label="Закрыть"
-              >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </button>
-            </div>
-
-            <div className="overflow-y-auto flex-1">
-              <div className="relative w-full aspect-video shrink-0 border-b border-line bg-black overflow-hidden">
-                <Image
-                  src={img}
-                  alt={`${title} — превью`}
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 896px) 100vw, 896px"
-                />
-              </div>
-
-              <div className="p-6 space-y-6">
-                <p className="text-code text-gray leading-relaxed">{description}</p>
-
-                {startDate && (
-                  <div className="rounded-xl border border-line bg-black-light/50 p-4">
-                    <p className="text-xs font-medium text-blue mb-3">Период работы</p>
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-green-light"></div>
-                        <span className="text-xs text-gray">
-                          {formatDate(startDate)}
-                        </span>
-                        <span className="text-xs text-gray">—</span>
-                        <span className="text-xs text-gray">
-                          {endDate ? formatDate(endDate) : 'По настоящее время'}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2 pl-4 sm:pl-0 sm:ml-auto">
-                        <Clock className="w-3.5 h-3.5 text-blue shrink-0" aria-hidden="true" />
-                        <span className="text-xs font-medium text-blue">
-                          {formatDuration(calculateMonths(startDate, endDate))}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {media?.video && (
-                  <div className="rounded-xl border border-line bg-black-light/50 p-4">
-                  <p className="text-xs font-medium text-blue mb-3">Медиа</p>
-                    <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-line bg-black">
-                      {videoError ? (
-                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4 text-center text-xs text-gray">
-                          <span>Не удалось загрузить видео.</span>
-                        </div>
-                      ) : (
-                        <video
-                          src={media.video}
-                          controls
-                          className="w-full h-full object-contain"
-                          preload="metadata"
-                          playsInline
-                          onError={handleVideoError}
-                        >
-                          Ваш браузер не поддерживает воспроизведение видео.
-                        </video>
-                      )}
-                    </div>
+              <div className="flex items-center justify-between shrink-0 px-6 py-4 border-b border-line gap-4">
+                <div className="flex flex-wrap items-center gap-2 min-w-0">
+                  <h2 id="project-modal-title" className="text-label font-bold text-blue">
+                    {title}
+                  </h2>
+                  {types.map((type) => (
+                    <span
+                      key={type}
+                      className={`rounded-md border px-2 py-0.5 text-[10px] uppercase tracking-wide ${TYPE_STYLES[type]}`}
+                    >
+                      {TYPE_LABELS[type]}
+                    </span>
+                  ))}
                 </div>
-                )}
+                <button
+                  ref={closeBtnRef}
+                  type="button"
+                  onClick={closeModal}
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-line text-gray hover:border-blue hover:text-blue transition-colors"
+                  aria-label="Закрыть"
+                >
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                </button>
+              </div>
 
-                {technologies.length > 0 && (
-                  <div>
-                    <p className="text-xs font-medium text-blue mb-2">Технологии</p>
-                    <div className="flex flex-wrap gap-2">
-                      {technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="rounded-lg border border-line bg-black-light px-3 py-1.5 text-xs text-gray"
+              <div className="overflow-y-auto flex-1">
+                <div className="relative w-full aspect-video shrink-0 border-b border-line bg-black overflow-hidden">
+                  <Image
+                    src={img}
+                    alt={`${title} — превью`}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 896px) 100vw, 896px"
+                  />
+                </div>
+
+                <div className="p-6 space-y-6">
+                  <p className="text-code text-gray leading-relaxed">{description}</p>
+
+                  {startDate && (
+                    <div className="rounded-xl border border-line bg-black-light/50 p-4">
+                      <p className="text-xs font-medium text-blue mb-3">Период работы</p>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 rounded-full bg-green-light"></div>
+                          <span className="text-xs text-gray">{formatDate(startDate)}</span>
+                          <span className="text-xs text-gray">—</span>
+                          <span className="text-xs text-gray">
+                            {endDate ? formatDate(endDate) : 'По настоящее время'}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2 pl-4 sm:pl-0 sm:ml-auto">
+                          <Clock className="w-3.5 h-3.5 text-blue shrink-0" aria-hidden="true" />
+                          <span className="text-xs font-medium text-blue">
+                            {formatDuration(calculateMonths(startDate, endDate))}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {media?.video && (
+                    <div className="rounded-xl border border-line bg-black-light/50 p-4">
+                      <p className="text-xs font-medium text-blue mb-3">Медиа</p>
+                      <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-line bg-black">
+                        {videoError ? (
+                          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4 text-center text-xs text-gray">
+                            <span>Не удалось загрузить видео.</span>
+                          </div>
+                        ) : (
+                          <video
+                            src={media.video}
+                            controls
+                            className="w-full h-full object-contain"
+                            preload="metadata"
+                            playsInline
+                            onError={handleVideoError}
+                          >
+                            Ваш браузер не поддерживает воспроизведение видео.
+                          </video>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {technologies.length > 0 && (
+                    <div>
+                      <p className="text-xs font-medium text-blue mb-2">Технологии</p>
+                      <div className="flex flex-wrap gap-2">
+                        {technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="rounded-lg border border-line bg-black-light px-3 py-1.5 text-xs text-gray"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {implemented.length > 0 && (
+                    <div>
+                      <p className="text-xs font-medium text-blue mb-2">Реализовано</p>
+                      <ul className="list-inside list-disc space-y-1.5 text-xs text-gray">
+                        {implemented.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {url.length > 0 && (
+                    <div className="flex flex-wrap gap-3 pt-2">
+                      {url.map((link) => (
+                        <a
+                          href={link.url}
+                          key={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white text-xs px-5 py-2.5 bg-black-light rounded-lg hover:bg-line border border-line hover:border-blue/50 transition-colors"
                         >
-                          {tech}
-                        </span>
+                          {link.type}
+                        </a>
                       ))}
                     </div>
-                  </div>
-                )}
-
-                {implemented.length > 0 && (
-                  <div>
-                    <p className="text-xs font-medium text-blue mb-2">Реализовано</p>
-                    <ul className="list-inside list-disc space-y-1.5 text-xs text-gray">
-                      {implemented.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {url.length > 0 && (
-                  <div className="flex flex-wrap gap-3 pt-2">
-                    {url.map((link) => (
-                      <a
-                        href={link.url}
-                        key={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white text-xs px-5 py-2.5 bg-black-light rounded-lg hover:bg-line border border-line hover:border-blue/50 transition-colors"
-                      >
-                        {link.type}
-                      </a>
-                    ))}
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </div>,
+          </div>,
           document.body
         )}
     </>
