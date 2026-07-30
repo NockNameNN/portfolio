@@ -3,8 +3,10 @@
 import Image from 'next/image';
 import { useEffect, useCallback, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+
 import { Clock } from '@/public/icons';
 import { reachGoal } from '@/lib/metrika';
+import { withBasePath } from '@/lib/withBasePath';
 
 interface IProjectMedia {
   video?: string;
@@ -89,6 +91,8 @@ export default function Project({
   const [videoError, setVideoError] = useState(false);
   const cardRef = useRef<HTMLElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const imageSrc = withBasePath(img);
+  const videoSrc = media?.video ? withBasePath(media.video) : undefined;
 
   const closeModal = useCallback(() => setIsModalOpen(false), []);
 
@@ -131,7 +135,7 @@ export default function Project({
       >
         <div className="relative aspect-[16/10] shrink-0 overflow-hidden border-b border-line bg-black">
           <Image
-            src={img}
+            src={imageSrc}
             alt={`project ${title}`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -237,7 +241,7 @@ export default function Project({
               <div className="overflow-y-auto flex-1">
                 <div className="relative w-full aspect-video shrink-0 border-b border-line bg-black overflow-hidden">
                   <Image
-                    src={img}
+                    src={imageSrc}
                     alt={`${title} — превью`}
                     fill
                     className="object-cover object-top"
@@ -280,7 +284,7 @@ export default function Project({
                           </div>
                         ) : (
                           <video
-                            src={media.video}
+                            src={videoSrc}
                             controls
                             className="w-full h-full object-contain"
                             preload="metadata"
