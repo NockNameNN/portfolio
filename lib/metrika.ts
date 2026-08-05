@@ -1,4 +1,4 @@
-export const YANDEX_METRIKA_ID = 107062974;
+export const YANDEX_METRIKA_ID = 111329237;
 
 declare global {
   interface Window {
@@ -6,7 +6,6 @@ declare global {
   }
 }
 
-/** Отправка достижения цели в Яндекс.Метрику (опционально с параметрами визита) */
 export function reachGoal(goalName: string, params?: Record<string, string>): void {
   if (typeof window === 'undefined' || !window.ym) return;
   if (params && Object.keys(params).length > 0) {
