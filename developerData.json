@@ -85,98 +85,6 @@
       "types": ["site"]
     },
     {
-      "title": "Сервис Экспертов",
-      "description": "Клиентский frontend платформы для специалистов клининга и химчистки в монорепо с бэкендом. В активной разработке",
-      "img": "/img/serviceExpertov.png",
-      "url": [
-        {
-          "type": "website",
-          "url": "https://serviceexpertov.ru"
-        }
-      ],
-      "startDate": "2026-07-11",
-      "technologies": [
-        "React",
-        "TypeScript",
-        "Vite",
-        "Tailwind CSS",
-        "React Router",
-        "Axios",
-        "Recharts"
-      ],
-      "implemented": [
-        "Frontend клиентского приложения в команде (монорепозиторий Go + React)",
-        "Онбординг, auth-потоки (логин/регистрация/восстановление), защищённые маршруты",
-        "Модули: дашборд, статистика цен (графики Recharts), страховка, рефералка, маркетплейс, профиль, новости",
-        "Интеграция с backend API (axios), адаптивный UI под телефон и десктоп",
-        "Прод-домен serviceexpertov.ru, статус: в активной разработке"
-      ],
-      "types": ["site", "wip"]
-    },
-    {
-      "title": "Информационный портал Пластовского края",
-      "description": "Одиночный проект: туристический портал округа — места, маршруты, события, карта и админка контента",
-      "img": "/img/plastExcursions.png",
-      "url": [
-        {
-          "type": "demo",
-          "url": "https://excursions-nockname2-hgpe.onreza.app"
-        }
-      ],
-      "startDate": "2026-06-25",
-      "technologies": [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Zod",
-        "Yandex Maps",
-        "AWS S3",
-        "Vitest"
-      ],
-      "implemented": [
-        "Разработка в одиночку: публичный сайт + админка на Next.js App Router",
-        "Разделы: места притяжения, маршруты, события, карта, об округе, туристу, партнёрам",
-        "Яндекс.Карты: метки мест/событий, кластеризация и фильтры",
-        "Админка: CRUD мест, событий, маршрутов, отзывов; медиабиблиотека (S3)",
-        "Контент на JSON + Zod-валидация и Server Actions; поиск по сайту",
-        "SEO (sitemap, Open Graph), адаптивная вёрстка; статус: демо / в разработке"
-      ],
-      "types": ["site", "wip"]
-    },
-    {
-      "title": "Сайт компьютерного салона «Плазма»",
-      "description": "Одиночный проект: онлайн-витрина компьютерного салона с каталогом, бронированием и админкой",
-      "img": "/img/plazma.png",
-      "url": [
-        {
-          "type": "demo",
-          "url": "https://plazma-nockname2-hgpe.onreza.app"
-        }
-      ],
-      "startDate": "2026-06-25",
-      "technologies": [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Prisma",
-        "PostgreSQL",
-        "Zod",
-        "AWS S3",
-        "Vitest"
-      ],
-      "implemented": [
-        "Разработка в одиночку на FSD (Next.js App Router)",
-        "Витрина: hero, категории, популярные товары, услуги, преимущества, блог, светлая/тёмная тема",
-        "Каталог с поиском и пагинацией, карточка товара, корзина бронирования",
-        "Админка: CRUD товаров и статей, инвентарь, импорт/экспорт Excel, статистика",
-        "Prisma + PostgreSQL, iron-session auth, загрузка медиа в S3, rate limit (Upstash)",
-        "Статус: демо / в разработке"
-      ],
-      "types": ["site", "wip"]
-    },
-    {
       "title": "Админ-панель MakSec DDP для сетевых инженеров",
       "description": "Система управления инцидентами для служб безопасности: инфраструктура, сканирование, приманки, WebSocket и роли доступа",
       "img": "/img/maksecDDP.png",
@@ -241,6 +149,98 @@
         "Контактная форма: валидация, google reCAPTCHA v3",
         "Блог: карточки статей, /blog/[id], рендер HTML (html-react-parser)",
         "Адаптивная вёрстка (mobile-first); прод: maksec.ru"
+      ],
+      "types": ["site"]
+    },
+    {
+      "title": "Сервис Экспертов",
+      "description": "Клиентский frontend платформы для специалистов клининга и химчистки в монорепо с бэкендом. В активной разработке",
+      "img": "/img/serviceExpertov.png",
+      "url": [
+        {
+          "type": "website",
+          "url": "https://serviceexpertov.ru"
+        }
+      ],
+      "startDate": "2026-07-11",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "React Router",
+        "Axios",
+        "Recharts"
+      ],
+      "implemented": [
+        "Frontend клиентского приложения в команде (монорепозиторий Go + React)",
+        "Онбординг, auth-потоки (логин/регистрация/восстановление), защищённые маршруты",
+        "Модули: дашборд, статистика цен (графики Recharts), страховка, рефералка, маркетплейс, профиль, новости",
+        "Интеграция с backend API (axios), адаптивный UI под телефон и десктоп",
+        "Прод-домен serviceexpertov.ru, статус: в активной разработке"
+      ],
+      "types": ["site"]
+    },
+    {
+      "title": "Информационный портал Пластовского края",
+      "description": "Одиночный проект: туристический портал округа — места, маршруты, события, карта и админка контента",
+      "img": "/img/plastExcursions.png",
+      "url": [
+        {
+          "type": "demo",
+          "url": "https://excursions-nockname2-hgpe.onreza.app"
+        }
+      ],
+      "startDate": "2026-06-25",
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Zod",
+        "Yandex Maps",
+        "AWS S3",
+        "Vitest"
+      ],
+      "implemented": [
+        "Разработка в одиночку: публичный сайт + админка на Next.js App Router",
+        "Разделы: места притяжения, маршруты, события, карта, об округе, туристу, партнёрам",
+        "Яндекс.Карты: метки мест/событий, кластеризация и фильтры",
+        "Админка: CRUD мест, событий, маршрутов, отзывов; медиабиблиотека (S3)",
+        "Контент на JSON + Zod-валидация и Server Actions; поиск по сайту",
+        "SEO (sitemap, Open Graph), адаптивная вёрстка; статус: демо / в разработке"
+      ],
+      "types": ["site"]
+    },
+    {
+      "title": "Сайт компьютерного салона «Плазма»",
+      "description": "Одиночный проект: онлайн-витрина компьютерного салона с каталогом, бронированием и админкой",
+      "img": "/img/plazma.png",
+      "url": [
+        {
+          "type": "demo",
+          "url": "https://plazma-nockname2-hgpe.onreza.app"
+        }
+      ],
+      "startDate": "2026-06-25",
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Prisma",
+        "PostgreSQL",
+        "Zod",
+        "AWS S3",
+        "Vitest"
+      ],
+      "implemented": [
+        "Разработка в одиночку на FSD (Next.js App Router)",
+        "Витрина: hero, категории, популярные товары, услуги, преимущества, блог, светлая/тёмная тема",
+        "Каталог с поиском и пагинацией, карточка товара, корзина бронирования",
+        "Админка: CRUD товаров и статей, инвентарь, импорт/экспорт Excel, статистика",
+        "Prisma + PostgreSQL, iron-session auth, загрузка медиа в S3, rate limit (Upstash)",
+        "Статус: демо / в разработке"
       ],
       "types": ["site"]
     },
